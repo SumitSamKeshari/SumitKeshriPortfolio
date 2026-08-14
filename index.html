@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- Updated Title and Meta Description for SEO -->
+    <title>Sumit Kumar Keshari | Portfolio</title>
+    <meta name="description" content="Sumit Kumar Keshari — .NET Software Engineer & Backend Developer specialising in C#, ASP.NET Core, and WPF." />
+    
+    <!-- Correct base href for GitHub Pages -->
+    <!-- <base href="/" /> -->
+	<base href="/SumitKeshriPortfolio/" />
+	
+	<!-- Stylesheets -->
+    <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/app.css" />
+    <link rel="icon" type="image/png" href="favicon.png" />
+    
+    <link href="_framework/dotnet.djdk3d6mll.js" rel="preload" as="script" fetchpriority="high" crossorigin="anonymous" integrity="sha256-iZgif9iuTSt5T7lp8OZkeIk21KGCoHFodyeNomYAAno=" />
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    
+    <script type="importmap">{
+  "imports": {
+    "./_framework/blazor.webassembly.js": "./_framework/blazor.webassembly.w3qd1tpl0e.js",
+    "./_framework/dotnet.js": "./_framework/dotnet.djdk3d6mll.js",
+    "./_framework/dotnet.native.js": "./_framework/dotnet.native.vzj2a6aakt.js",
+    "./_framework/dotnet.runtime.js": "./_framework/dotnet.runtime.zbexyp8zrs.js"
+  },
+  "scopes": {},
+  "integrity": {
+    "./_framework/blazor.webassembly.js": "sha256-lDXsDYFgm62F+YUvxES7IOTCXYpiHpU3uR45YdC6mq4=",
+    "./_framework/blazor.webassembly.w3qd1tpl0e.js": "sha256-lDXsDYFgm62F+YUvxES7IOTCXYpiHpU3uR45YdC6mq4=",
+    "./_framework/dotnet.djdk3d6mll.js": "sha256-iZgif9iuTSt5T7lp8OZkeIk21KGCoHFodyeNomYAAno=",
+    "./_framework/dotnet.js": "sha256-iZgif9iuTSt5T7lp8OZkeIk21KGCoHFodyeNomYAAno=",
+    "./_framework/dotnet.native.js": "sha256-RezASHv+dbqV50cFnld76YiLhk4B+BjMAKs/euUdNyE=",
+    "./_framework/dotnet.native.vzj2a6aakt.js": "sha256-RezASHv+dbqV50cFnld76YiLhk4B+BjMAKs/euUdNyE=",
+    "./_framework/dotnet.runtime.js": "sha256-MZMguyke9CroSQl+L/SHIGFkPTD+LtYGXkXjAvwWx40=",
+    "./_framework/dotnet.runtime.zbexyp8zrs.js": "sha256-MZMguyke9CroSQl+L/SHIGFkPTD+LtYGXkXjAvwWx40="
+  }
+}</script>
+    
+    <!-- Apply theme immediately to prevent flash -->
+    <script>
+        (function(){var t=localStorage.getItem('portfolio-theme')||'light';document.documentElement.setAttribute('data-theme',t);})();
+    </script>
+</head>
+
+<body>
+    <!-- Blazor App Container with default loading UI -->
+    <div id="app">
+        <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100vh; font-family: 'Inter', sans-serif;">
+            <h2 style="color: #6366f1; font-weight: 700; margin-bottom: 10px;">Loading Portfolio...</h2>
+            <p style="color: #64748b; font-size: 0.9rem;">Just a second!</p>
+        </div>
+    </div>
+
+    <!-- Default Blazor Error UI -->
+    <div id="blazor-error-ui">
+        An unhandled error has occurred.
+        <a href="." class="reload">Reload</a>
+        <span class="dismiss">🗙</span>
+    </div>
+
+    <!-- 1. Custom JS loaded FIRST to avoid initialization errors -->
+    <script src="portfolio.js?v=3"></script>
+
+    <!-- 2. Core WASM script loaded SECOND (using the fingerprint syntax from your source) -->
+    <script src="_framework/blazor.webassembly.w3qd1tpl0e.js"></script>
+</body>
+
+</html>
