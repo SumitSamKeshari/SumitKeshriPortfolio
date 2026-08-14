@@ -1,0 +1,19 @@
+<div class="skill-item">
+    <div class="skill-info">
+        <span class="skill-name">@Name</span>
+        <span class="skill-percent">@Percent%</span>
+    </div>
+    <div class="skill-bar"
+         role="progressbar"
+         aria-valuenow="@Percent"
+         aria-valuemin="0"
+         aria-valuemax="100"
+         aria-label="@Name proficiency: @Percent percent">
+        <div class="skill-fill" data-width="@Percent"></div>
+    </div>
+</div>
+
+@code {
+    [Parameter, EditorRequired] public string Name    { get; set; } = "";
+    [Parameter, EditorRequired] public int    Percent { get; set; }
+}

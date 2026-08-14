@@ -1,0 +1,41 @@
+﻿<header class="navbar" role="banner">
+    <div class="navbar-container">
+
+        <a href="#home" class="navbar-logo" aria-label="Portfolio home">
+            <span class="logo-text">&lt;SK /&gt;</span>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="desktop-nav-menu" id="navbar-nav" role="navigation" aria-label="Main navigation">
+            <a href="#skills" class="nav-link">Skills</a>
+            <a href="#projects" class="nav-link">Projects</a>
+            <a href="#contact" class="nav-link">Contact</a>
+        </nav>
+
+        <div class="navbar-actions">
+            <!-- Dark Mode Toggle -->
+            <button type="button" id="theme-toggle" class="theme-btn"
+                    onclick="event.preventDefault(); var html=document.documentElement; var next=(html.getAttribute('data-theme')==='dark'?'light':'dark'); html.setAttribute('data-theme',next); localStorage.setItem('portfolio-theme',next);"
+                    aria-label="Toggle dark / light mode">
+                <span class="theme-icon-sun" aria-hidden="true">&#9728;</span>
+                <span class="theme-icon-moon" aria-hidden="true">&#9790;</span>
+            </button>
+
+            <!-- Mobile Hamburger Menu Button -->
+            <button type="button" id="menu-toggle" class="hamburger"
+                    onclick="event.preventDefault(); var m=document.getElementById('mobile-menu'); var isOpen=m.classList.toggle('open'); m.style.opacity=isOpen?'1':'0'; m.style.transform=isOpen?'translateY(0)':'translateY(-110%)'; m.style.pointerEvents=isOpen?'auto':'none'; this.classList.toggle('active');"
+                    aria-label="Toggle mobile navigation menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Mobile Dropdown Menu -->
+    <nav id="mobile-menu" class="mobile-menu" role="navigation" style="display: block; opacity: 0; pointer-events: none; transform: translateY(-110%); transition: all 0.3s ease;">
+        <a href="#skills" class="mobile-nav-link" onclick="document.getElementById('menu-toggle').click();">Skills</a>
+        <a href="#projects" class="mobile-nav-link" onclick="document.getElementById('menu-toggle').click();">Projects</a>
+        <a href="#contact" class="mobile-nav-link" onclick="document.getElementById('menu-toggle').click();">Contact</a>
+    </nav>
+</header>

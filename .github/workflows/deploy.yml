@@ -1,0 +1,51 @@
+name: Deploy Blazor WebAssembly to GitHub Pages
+
+on:
+  push:
+    branches: [ main ]
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup .NET SDK
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x' # Matches your local compiler version
+
+      - name: Restore dependencies
+        run: dotnet restore SumitKeshriPortfolio.csproj
+
+      - name: Publish WebAssembly App
+        run: dotnet publish SumitKeshriPortfolio.csproj -c Release -o release
+
+      - name: Configure GitHub Pages Static Files
+        run: |
+          # WebAssembly output publishes directly to wwwroot inside the release folder
+          TARGET_DIR=$(find release -type d -name "wwwroot" | head -n 1)
+          
+          echo "Found wwwroot at: $TARGET_DIR"
+          
+          # Add .nojekyll to prevent GitHub from ignoring folders with underscores
+          touch "$TARGET_DIR/.nojekyll"
+          
+          # Create 404 fallback for client-side routing
+          if [ -f "$TARGET_DIR/index.html" ]; then
+            cp "$TARGET_DIR/index.html" "$TARGET_DIR/404.html"
+          fi
+          
+          echo "PUBLISH_DIR=$TARGET_DIR" >> $GITHUB_ENV
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ${{ env.PUBLISH_DIR }}
+          publish_branch: gh-pages
